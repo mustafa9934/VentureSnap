@@ -31,7 +31,7 @@ module.exports = {
       const token = generateToken(user);
       return res
         .status(200)
-        .json({ message: "You are registered at VentureSnap!", token });
+        .json({ message: "You are registered at VentureSnap!", token, user });
     } catch (error) {
       return res.status(500).json({ message: error });
     }
@@ -53,9 +53,11 @@ module.exports = {
         );
         if (passwordValidity) {
           const token = generateToken(user);
-          return res
-            .status(200)
-            .json({ message: "You are logged in to VentureSnap!", token });
+          return res.status(200).json({
+            message: "You are logged in to VentureSnap!",
+            token,
+            user,
+          });
         }
       }
       authErrors.push("Login details are incorrect!");
