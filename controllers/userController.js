@@ -10,13 +10,14 @@ const generateToken = (user) => {
   });
 };
 
-const authErrors = [];
+let authErrors = [];
 
 module.exports = {
   register: async (req, res) => {
     // Check for validation errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      authErrors = [];
       errors.array().map((error) => authErrors.push(error.msg));
       return res.status(400).json({ errors: authErrors });
     }
@@ -24,7 +25,7 @@ module.exports = {
       const userValidity = await User.findOne({ email: req.body.email });
       if (userValidity) {
         authErrors.push("This email is already registered, Try Logging In!");
-        return res.status(409).json({ errors: authErrors });
+        return res.status(403).json({ errors: authErrors });
       }
       const user = await User.create(req.body);
       const token = generateToken(user);
