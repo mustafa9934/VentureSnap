@@ -1,4 +1,5 @@
 import {
+  LOGIN_ERRORS,
   LOGIN_USER,
   REGISTER_ERRORS,
   REGISTER_USER,
@@ -20,17 +21,21 @@ const authReducer = (state = initialState, action) => {
         ...state,
         message: action.payload.message,
         token: action.payload.token,
+        user: action.payload.user,
       };
     case LOGIN_USER:
       return {
         ...state,
         message: action.payload.message,
         token: action.payload.token,
+        user: action.payload.user,
       };
     case UPDATE_USER_STATE_ON_TOKEN:
       const userData = action.payload;
       return { ...state, token: userData.token, user: userData.user };
     case REGISTER_ERRORS:
+      return { ...state, errors: action.payload.data.errors };
+    case LOGIN_ERRORS:
       return { ...state, errors: action.payload.data.errors };
     default:
       return state;
