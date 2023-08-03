@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const User = require("./userModel");
 
 const postSchema = new mongoose.Schema({
   title: {
@@ -25,6 +24,10 @@ const postSchema = new mongoose.Schema({
   author: {
     type: mongoose.Types.ObjectId,
     ref: "User",
+  },
+  comments: {
+    type: mongoose.Types.ObjectId,
+    ref: "Comment",
   },
 });
 
