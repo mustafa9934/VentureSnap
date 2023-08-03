@@ -12,4 +12,15 @@ module.exports = {
       return res.status(500).json({ message: error });
     }
   },
+  getAllPosts: async (req, res) => {
+    try {
+      const posts = await Posts.find().populate(
+        "author",
+        "fullName email dateOfBirth gender country profileImage bio socialMediaLinks createdAt"
+      );
+      return res.status(200).json({ posts });
+    } catch (error) {
+      return res.status(500).json({ message: error });
+    }
+  },
 };
