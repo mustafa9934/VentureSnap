@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Header from "../components/header/Header";
 
 const Home = () => {
   const { message } = useSelector((state) => state.auth);
@@ -11,7 +12,7 @@ const Home = () => {
     }
   }, [message]);
   return (
-    <div>
+    <>
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -24,8 +25,8 @@ const Home = () => {
         pauseOnHover
         theme="light"
       />
-      <h1>Home page</h1>
-    </div>
+      <Header />
+    </>
   );
 };
 
