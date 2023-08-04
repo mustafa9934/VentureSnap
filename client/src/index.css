@@ -1,9 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&family=Volkhov:wght@400;700&display=swap");
+:root {
+  --font-primary: "Poppins", sans-serif;
+  --font-secondary: "Volkhov", serif;
+
+  --color-primary: #df6951;
+  --color-secondary-1: #181e4b;
+  --color-secondary-2: #252d6b;
+  --color-secondary-3: #596199;
+  --color-secondary-4: #c9c9c9;
+  --color-white: #f3f3f3;
+}
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
 }
+html {
+  font-size: 10px;
+}
 body {
+  font-size: 1.6rem;
+  font-family: var(--font-primary);
   margin: 0px;
   padding: 0px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -11,4 +28,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0px 15px;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
 }
