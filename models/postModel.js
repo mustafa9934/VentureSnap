@@ -16,11 +16,9 @@ const postSchema = new mongoose.Schema({
   description: {
     type: String,
   },
-  pictures: [
-    {
-      type: String,
-    },
-  ],
+  picture: {
+    type: String,
+  },
   author: {
     type: mongoose.Types.ObjectId,
     ref: "User",
